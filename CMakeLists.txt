@@ -9,9 +9,14 @@ FetchContent_Declare(SFML
     GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(NIPD_ABM src/main.cpp)
+add_executable(NIPD_ABM src/main.cpp src/Agent.hpp src/Agent.cpp src/Saver.hpp src/Saver.cpp src/constants.hpp)
 target_link_libraries(NIPD_ABM PRIVATE sfml-graphics)
 target_compile_features(NIPD_ABM PRIVATE cxx_std_17)
+
+add_subdirectory(src/AKML-lib/)
+target_link_libraries(NIPD_ABM PRIVATE AKML)
+target_include_directories(NIPD_ABM PRIVATE src/AKML-lib/)
+set_property(TARGET AKML PROPERTY CXX_STANDARD 20)
 
 if(WIN32)
     add_custom_command(
