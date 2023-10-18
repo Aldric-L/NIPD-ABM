@@ -44,3 +44,6 @@ void Agent::createMemory(const float coop_rate){
     memory[AGENT_MEMORY_DURATION-1] = will_cooperate;
     coop_memory[AGENT_MEMORY_DURATION-1] = coop_rate;
 }
+
+std::pair<int, int> Agent::getPos(){ return pos; }
+void Agent::editPos(const std::pair<int, int> &new_pos) { pos = new_pos; };

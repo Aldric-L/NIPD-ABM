@@ -15,6 +15,7 @@ protected:
     akml::NeuralNetwork<4>** brainNN;
     std::array <bool, AGENT_MEMORY_DURATION> memory;
     std::array <float, AGENT_MEMORY_DURATION> coop_memory;
+    std::pair<int, int> pos;
     unsigned long int previousGlobalWelfare = 0;
     unsigned short int cooperationCost = 0;
     
@@ -35,6 +36,9 @@ public:
     void setCooperationCost(unsigned short int cCost);
     void makedecision();
     void createMemory(const float coop_rate);
+    
+    std::pair<int, int> getPos();
+    void editPos(const std::pair<int, int>& new_pos);
 
 };
 
