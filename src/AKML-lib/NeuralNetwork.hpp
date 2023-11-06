@@ -183,6 +183,7 @@ public:
         
             akml::for_<0, NBLAYERS-1>::template run<importLayer_functor, std::array<AbstractNeuralLayer*, NBLAYERS>*, std::vector<std::vector<std::vector<std::string>>>*, std::vector<std::vector<std::vector<std::string>>>*>(&layers, &weights, &biases);
             
+            //assert(1==2);
         }
         file.close();
     }

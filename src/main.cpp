@@ -4,11 +4,13 @@
 #include "Agent.hpp"
 #include "Saver.hpp"
 
+#include <AgentBasedUtilities/BaseAgent.cpp>
+#include <AgentBasedUtilities/Save.hpp>
+#include <AgentBasedUtilities/CSV_Saver.hpp>
 
 int main()
 {
-    std::cout << "Hello terrible world";
-    Saver memoryManager;
+    std::cout << "Hello terrible world \n";
     
     auto window = sf::RenderWindow{ { GRID_PIXEL_WIDTH, GRID_PIXEL_WIDTH }, "SFML Simulation" };
     window.setFramerateLimit(25);
@@ -24,6 +26,11 @@ int main()
             grid[rows][columns] = nullptr;
         }
     }
+    
+
+    akml::Save<3, unsigned long int, float, unsigned long int>* currentSave;
+    akml::Save<3, unsigned long int, float, unsigned long int>::default_parameters_name = {{ "nb_cooperators", "cooperator_rate", "global_welfare"}};
+    akml::CSV_Saver<akml::Save<3, unsigned long int, float, unsigned long int>> memoryManager;
     
     unsigned short int agentsAssignated = 0;
     while (agentsAssignated < AGENTS_POP_SIZE) {
@@ -50,14 +57,13 @@ int main()
                 if (agents[agent_id]->will_cooperate)
                     coop_agent_counter++;
             }
-            Save currentSave;
-            currentSave.nb_cooperators = coop_agent_counter;
-            //currentSave.global_welfare = coop_agent_counter*GLOBAL_REWARD_PER_COOPERATIVE_AGENT;
-            currentSave.global_welfare = std::pow(GLOBAL_REWARD_PER_COOPERATIVE_AGENT, coop_agent_counter);
-            currentSave.cooperator_rate = (float)coop_agent_counter/AGENTS_POP_SIZE;
+            
+            unsigned long int global_welfare = coop_agent_counter*GLOBAL_REWARD_PER_COOPERATIVE_AGENT;
+            currentSave = new akml::Save<3, unsigned long int, float, unsigned long int> (coop_agent_counter, (float)coop_agent_counter/AGENTS_POP_SIZE, global_welfare);
+            
             memoryManager.addSave(currentSave);
             for (std::size_t agent_id(0); agent_id < AGENTS_POP_SIZE; agent_id++){
-                agents[agent_id]->setPreviousGlobalWelfare(currentSave.global_welfare/std::pow(GLOBAL_REWARD_PER_COOPERATIVE_AGENT, AGENTS_POP_SIZE));
+                agents[agent_id]->setPreviousGlobalWelfare(global_welfare/std::pow(GLOBAL_REWARD_PER_COOPERATIVE_AGENT, AGENTS_POP_SIZE));
                 agents[agent_id]->setCooperationCost(COOPERATION_COST);
                 agents[agent_id]->makedecision();
             }

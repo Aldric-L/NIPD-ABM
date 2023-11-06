@@ -7,12 +7,6 @@
 
 #include "Agent.hpp"
 
-void Agent::editNNPointer(akml::NeuralNetwork<4>* NN) {
-    brainNN = new akml::NeuralNetwork<4>* (NN);
-}
-
-akml::NeuralNetwork<4>* Agent::getNNAccess() { return *brainNN; }
-
 void Agent::setPreviousGlobalWelfare(unsigned long int pGlobalWelfare) {
     previousGlobalWelfare = pGlobalWelfare;
 }

@@ -27,7 +27,7 @@
 #define GRID_PIXEL_SIZE (GRID_PIXEL_WIDTH)*(GRID_PIXEL_WIDTH)
 
 #define NN_INPUT_LEN 2+AGENT_MEMORY_DURATION*2
-#define POP_LOG 0
+#define POP_LOG 1
 
 
 #define AKML_NEURAL_LAYER_NB 4
@@ -35,5 +35,6 @@
 
 #include <AKML.hpp>
 #include <GeneticAlgorithm.cpp>
+#include <AgentBasedUtilities/BaseAgent.hpp>
 
 #endif /* constants_hpp */

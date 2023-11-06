@@ -9,7 +9,7 @@ FetchContent_Declare(SFML
     GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(NIPD_ABM src/main.cpp src/Agent.hpp src/Agent.cpp src/Saver.hpp src/Saver.cpp src/constants.hpp)
+add_executable(NIPD_ABM src/main.cpp src/Agent.hpp src/Agent.cpp src/constants.hpp)
 target_link_libraries(NIPD_ABM PRIVATE sfml-graphics)
 target_compile_features(NIPD_ABM PRIVATE cxx_std_17)
 

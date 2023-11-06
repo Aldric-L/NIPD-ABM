@@ -1,4 +1,4 @@
-# Install script for directory: /Users/aldric-l/Documents/C++ Dev/NIPD-ABM/src/AKML-lib
+# Install script for directory: /Users/aldric-l/Documents/C++ Dev/NIPD-ABM/src/AKML-lib/AgentBasedUtilities
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,9 +38,4 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 set(CMAKE_BINARY_DIR "/Users/aldric-l/Documents/C++ Dev/NIPD-ABM")
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/Users/aldric-l/Documents/C++ Dev/NIPD-ABM/src/AKML-lib/AgentBasedUtilities/cmake_install.cmake")
-endif()
 
