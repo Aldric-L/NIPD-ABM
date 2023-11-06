@@ -22,4 +22,8 @@ IPD-ABM.xcodeproj
 .git
 .github
 *.Rproj
+*.RData
+*.Rhistory
 *.user
+*.cmake
+*.sh
