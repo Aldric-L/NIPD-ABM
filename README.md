@@ -4,8 +4,8 @@ The main purpose of this project is to reproduce a classical model in game theor
 
 ## Results and screeshot
 
-![summary plot](https://raw.githubusercontent.com/Aldric-L/NIPD-ABM/main/results/plot1-cooperator_rate.png)
-![screenshot](https://raw.githubusercontent.com/Aldric-L/NIPD-ABM/main/results/screenshot.png)
+![summary plot](https://raw.githubusercontent.com/Aldric-L/NIPD-ABM/master/results/plot1_cooperator_rate.png)
+![screenshot](https://raw.githubusercontent.com/Aldric-L/NIPD-ABM/master/results/screenshot.png)
 
 
 ## Technical informations
